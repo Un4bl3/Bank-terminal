@@ -16,7 +16,7 @@ int main() {
 	User a = obtainingUser.createUserObject();
 	
 	BankAccount c(a);
-	c.showData();
+	//c.showData();
 	const User* retrieveUser = c.getUser();
 	cout << "User name :" << retrieveUser->getName() << endl;
 	cout << "User id: " << retrieveUser->getId() << endl;

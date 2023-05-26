@@ -6,6 +6,7 @@
 *	Pagrindinis konstruktorius, kuris sukuria "user" objekta
 */
 User::User(int id, string name, string surname, int age):id(id),name(name),surname(surname),age(age) {}
+User::User(string name, string surname, int age) : name(name), surname(surname), age(age) {}
 
 /*
 *	Duomenu isgavimas ir spausdinimas

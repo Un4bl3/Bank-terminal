@@ -9,4 +9,5 @@ void UserInput::ioInterface(string& name, string& surname, int &age)
 	cin >> surname;
 	cout << endl << "Type in age: ";
 	cin >> age;
+	cout << endl << endl;
 }
