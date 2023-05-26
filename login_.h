@@ -13,6 +13,6 @@ public:
 	void ioInterface();
 	ObtainingUser();
 	ObtainingUser(string name, string surname, int age);
-	
+	void giveID();
 	User createUserObject() const;
 };

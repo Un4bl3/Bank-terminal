@@ -36,6 +36,9 @@
     <ClCompile Include="userInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IDgenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="atm_.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="userInput_.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDgenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

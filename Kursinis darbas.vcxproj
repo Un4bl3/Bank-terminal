@@ -130,6 +130,7 @@
     <ClCompile Include="atm.cpp" />
     <ClCompile Include="bankAccount.cpp" />
     <ClCompile Include="bankAccount_.h" />
+    <ClCompile Include="IDgenerator.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="user.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="atm_.h" />
+    <ClInclude Include="IDgenerator.h" />
     <ClInclude Include="login_.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="userInput_.h" />
