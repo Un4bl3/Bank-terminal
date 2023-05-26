@@ -7,8 +7,8 @@
 *   
 */
 ObtainingUser::ObtainingUser() {}
-//ObtainingUser::ObtainingUser(int id, string name, string surname, int age):given_name(name),given_surname(surname),given_age(age){}
-ObtainingUser::ObtainingUser(string name, string surname, int age):given_name(name), given_surname(surname), given_age(age) {}
+ObtainingUser::ObtainingUser(int id, string name, string surname, int age):given_name(name),given_surname(surname),given_age(age){}
+
 /*
 *	Funkcija skirta iskvietimui is "UserInput" klases "ioInterface" funkcija 
 *	kuri praso vartotoja ivesti reikalingus duomenis "user" objektui sukurimui
@@ -22,6 +22,5 @@ void ObtainingUser::ioInterface() {
 * 
 */
 User ObtainingUser::createUserObject() const {
-	
-	return User(given_name, given_surname, given_age);
+	return User(given_id, given_name, given_surname, given_age);
 }

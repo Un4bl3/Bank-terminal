@@ -12,7 +12,7 @@ private:
 public: 
 	void ioInterface();
 	ObtainingUser();
-	ObtainingUser(string name, string surname, int age);
+	ObtainingUser(int id, string name, string surname, int age);
 	
 	User createUserObject() const;
 };

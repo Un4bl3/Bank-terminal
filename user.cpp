@@ -7,12 +7,8 @@
 */
 User::User(int id, string name, string surname, int age):id(id),name(name),surname(surname),age(age) {}
 
-/*	Konstruktorius reikalingas "obtaininUser" ir jo metodui.
-* 	Tam kad sukurti "user" objekta 
-*/
-User::User(string name, string surname, int age) {}
 /*
-*	Duomenu isgavimas ir spausdinimas 
+*	Duomenu isgavimas ir spausdinimas
 */
 void User::getUser() const
 {
