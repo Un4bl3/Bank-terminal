@@ -135,6 +135,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="userInput.cpp" />
+    <ClCompile Include="writer_to_csv_.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="atm_.h" />
@@ -143,6 +144,7 @@
     <ClInclude Include="Main.h" />
     <ClInclude Include="userInput_.h" />
     <ClInclude Include="user_.h" />
+    <ClInclude Include="writer_to_csv_.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

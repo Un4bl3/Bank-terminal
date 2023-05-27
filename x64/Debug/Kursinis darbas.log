@@ -1,2 +1,8 @@
-﻿  IDgenerator.cpp
-  Kursinis darbas.vcxproj -> C:\Users\jarek\source\repos\Kursinis darbas\x64\Debug\Kursinis darbas.exe
+﻿  Main.cpp
+C:\Users\jarek\source\repos\Kursinis darbas\Kursinis darbas\Main.cpp(28,9): error C2672: 'Writer::writeRow': no matching overloaded function found
+C:\Users\jarek\source\repos\Kursinis darbas\Kursinis darbas\writer_to_csv_.h(21,7): message : could be 'void Writer::writeRow(const std::vector<Ts...> &)'
+C:\Users\jarek\source\repos\Kursinis darbas\Kursinis darbas\Main.cpp(28,9): message : Failed to specialize function template 'void Writer::writeRow(const std::vector<Ts...> &)'
+C:\Users\jarek\source\repos\Kursinis darbas\Kursinis darbas\Main.cpp(28,9): message : With the following template arguments:
+C:\Users\jarek\source\repos\Kursinis darbas\Kursinis darbas\Main.cpp(28,9): message : 'Ts={}'
+  writer_to_csv_.cpp
+  Generating Code...
