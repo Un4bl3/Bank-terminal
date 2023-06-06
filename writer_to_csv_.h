@@ -17,8 +17,8 @@ public:
 	Writer(const string& filename);
 	bool openFile();
 	void closeFile();
-	template<typename... Ts>
-	void writeRow(const vector<Ts...>& row);
+	//template<typename T>
+	void writeRow( const string& row);
 	
 
 };

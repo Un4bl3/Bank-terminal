@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-
-
+#include <vector>
 #include "atm_.h"
 #include "user_.h"
 #include "bankAccount_.h"
@@ -24,8 +23,10 @@ int main() {
 	cout << "User name :" << retrieveUser->getName() << endl;
 	cout << "User id: " << retrieveUser->getId() << endl;
 	Writer writer("data.csv");
+	
 	if (writer.openFile()) {
-		writer.writeRow({ retrieveUser->getName() , retrieveUser->getId()});
+		writer.writeRow({ retrieveUser->getName() });
+		
 		cout << "all good";
 		writer.closeFile();
 	}

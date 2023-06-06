@@ -17,8 +17,8 @@ void Writer::closeFile() {
 		file.close();
 	}
 }
-template<typename... Ts>
-void Writer::writeRow(const vector<Ts...> & row) {
+//template<typename T>
+void Writer::writeRow(const string &  row) {
 	if (!file.is_open()) {
 		cout << "Error: file is closed" << endl;
 		return;
