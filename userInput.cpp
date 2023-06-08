@@ -11,7 +11,7 @@ void UserInput::ioCreateUser(string& name, string& surname, int &age)
 	cin >> age;
 	cout << endl << endl;
 }
-void UserInput::ioLogin(string& name, string& id) {
+void UserInput::ioCreateLogin(string& name, int& id) {
 	cout << "Type in your name";
 	cin >> name;
 	cout << "Type in your id";

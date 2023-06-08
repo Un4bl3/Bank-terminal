@@ -9,5 +9,6 @@ public:
 	UserInput();
 	// Funkicija skirta duomenu gavimui "obtainingUser" klases objektams
 	static void ioCreateUser(string& name, string& surname, int& age);
-	static void ioLogin(string& name, string& id);
+	// Metodas skirtas duomenu gavimui "Login" klases objektams
+	static void ioCreateLogin(string& name, int& id);
 };

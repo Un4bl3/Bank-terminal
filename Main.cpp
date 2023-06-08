@@ -7,6 +7,7 @@
 #include "obtainUser_.h"
 #include "writer_to_csv_.h"
 #include "reader_from_csv_.h"
+#include "login_.h"
 #include "Main.h"
 
 using namespace std;
@@ -23,6 +24,31 @@ int main() {
 	const User* retrieveUser = c.getUser();
 	cout << "User name :" << retrieveUser->getName() << endl;
 	cout << "User id: " << retrieveUser->getId() << endl;
+
+
+
+	
+
+	// use ioLogin in member functions
+	
+	// Create login obj
+	Login login;
+	login.ioCreateLogin();
+	// pass info to Login from User 
+	login.isItMatches(a);
+	// Verify whether it matches
+
+
+
+
+
+
+
+
+
+
+
+
 	/*
 	* Comeback later to include writing of seperate type vars 
 	* idea: vector <Ts...>
