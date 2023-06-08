@@ -7,6 +7,7 @@
 #include "obtainUser_.h"
 #include "writer_to_csv_.h"
 #include "reader_from_csv_.h"
+#include "transactions_.h"
 #include "login_.h"
 #include "Main.h"
 
@@ -42,7 +43,9 @@ int main() {
 
 
 
-
+	// Bank Account and transactions
+	Transactions show(c);
+	show.getBalanceFromBa();
 
 
 

@@ -135,6 +135,7 @@
     <ClCompile Include="obtainUser.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="reader_from_csv.cpp" />
+    <ClCompile Include="transactions.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="userInput.cpp" />
     <ClCompile Include="writer_to_csv_.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="obtainUser_.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="reader_from_csv_.h" />
+    <ClInclude Include="transactions_.h" />
     <ClInclude Include="userInput_.h" />
     <ClInclude Include="user_.h" />
     <ClInclude Include="writer_to_csv_.h" />

@@ -40,6 +40,16 @@ const User* BankAccount::getUser() const {
 	return user;
 }
 
+/*
+*	Metodas grazinantis balanso reiksme
+* 
+*	Reikalinga Transfer klasei, ten reiksme yra apdorojama/nustatoma
+*/
+double BankAccount::getBalance() const {
+	return balance;
+
+}
+
 //BankAccount User::createBankAccc(int user_id, string user_name)
 //{
 //	return BankAccount(user_id);
