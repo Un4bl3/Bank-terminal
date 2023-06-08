@@ -1,4 +1,4 @@
-#include "login_.h"
+#include "obtainUser_.h"
 #include "user_.h"
 #include "userInput_.h"
 #include "IDgenerator.h"
@@ -21,8 +21,8 @@ ObtainingUser::ObtainingUser(string name, string surname, int age):given_name(na
 *	Funkcija skirta iskvietimui is "UserInput" klases "ioInterface" funkcija 
 *	kuri praso vartotoja ivesti reikalingus duomenis "user" objektui sukurimui
 */
-void ObtainingUser::ioInterface() {
-	UserInput::ioInterface(given_name, given_surname, given_age);
+void ObtainingUser::ioCreateUser() {
+	UserInput::ioCreateUser(given_name, given_surname, given_age);
 	
 }
 void ObtainingUser::giveID() {

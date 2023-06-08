@@ -17,8 +17,11 @@ void Writer::closeFile() {
 		file.close();
 	}
 }
-//template<typename T>
-void Writer::writeRow(const string &  row) {
+// Come back later when understanding will improve
+// Need to write string and int provided some vectors
+// Also there is problem in output. Occurance of numbers between spaces.
+//template<typename Ts...>
+void Writer::writeRow(const vector<string> &  row) {
 	if (!file.is_open()) {
 		cout << "Error: file is closed" << endl;
 		return;
@@ -33,4 +36,5 @@ void Writer::writeRow(const string &  row) {
 		file << endl;
 	}
 }
+//void Writer::writeObj((char*)&obj, sizeof(obj));
 

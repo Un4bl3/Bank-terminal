@@ -1,18 +1,16 @@
 #pragma once
+/*
+* Class for logging in for exsiting users if exist
+*//*
 #include <string>
-using namespace std;
-class User;
-class ObtainingUser {
+#include "user_.h"
+class Login {
 private:
-	int given_id;
-	string given_name;
-	string given_surname;
-	int given_age;
-	
-public: 
-	void ioInterface();
-	ObtainingUser();
-	ObtainingUser(string name, string surname, int age);
-	void giveID();
-	User createUserObject() const;
-};
+	string name:
+	int id;
+
+public:
+	Login();
+	LoginTypeIn();
+
+};*/

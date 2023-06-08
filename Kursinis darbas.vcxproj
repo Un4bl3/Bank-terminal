@@ -131,8 +131,9 @@
     <ClCompile Include="bankAccount.cpp" />
     <ClCompile Include="bankAccount_.h" />
     <ClCompile Include="IDgenerator.cpp" />
-    <ClCompile Include="login.cpp" />
+    <ClCompile Include="obtainUser.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="reader_from_csv.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="userInput.cpp" />
     <ClCompile Include="writer_to_csv_.cpp" />
@@ -141,7 +142,9 @@
     <ClInclude Include="atm_.h" />
     <ClInclude Include="IDgenerator.h" />
     <ClInclude Include="login_.h" />
+    <ClInclude Include="obtainUser_.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="reader_from_csv_.h" />
     <ClInclude Include="userInput_.h" />
     <ClInclude Include="user_.h" />
     <ClInclude Include="writer_to_csv_.h" />

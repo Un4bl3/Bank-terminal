@@ -30,7 +30,7 @@
     <ClCompile Include="atm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="login.cpp">
+    <ClCompile Include="obtainUser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="userInput.cpp">
@@ -40,6 +40,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="writer_to_csv_.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="reader_from_csv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,7 +56,7 @@
     <ClInclude Include="Main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="login_.h">
+    <ClInclude Include="obtainUser_.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="userInput_.h">
@@ -63,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="writer_to_csv_.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="reader_from_csv_.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="login_.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

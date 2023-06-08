@@ -8,5 +8,6 @@ class UserInput {
 public:
 	UserInput();
 	// Funkicija skirta duomenu gavimui "obtainingUser" klases objektams
-	static void ioInterface(string& name, string& surname, int& age);
+	static void ioCreateUser(string& name, string& surname, int& age);
+	static void ioLogin(string& name, string& id);
 };
