@@ -9,8 +9,8 @@ IDgenerator::IDgenerator(int &id)
 
 };
 // Think of a better algorythm
-int IDgenerator::generateID() const{
+unsigned int IDgenerator::generateID() const{
 	auto now = chrono::system_clock::now();
-	auto timestamp = chrono::duration_cast<chrono::milliseconds>(now.time_since_epoch()).count();
-	return static_cast<int>(timestamp);
+	auto timestamp = chrono::duration_cast<chrono::seconds>(now.time_since_epoch()).count();
+	return static_cast<unsigned int>(timestamp); 
 }

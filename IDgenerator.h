@@ -8,5 +8,7 @@ private:
 public:
 	IDgenerator();
 	IDgenerator(int &id);
-	int generateID() const;
+	// Metodas generuoja skaiciu pagal dabartini laika
+	// unsigned kad isvengti bitu "overflow" ir minuso
+	unsigned int generateID() const;
 };

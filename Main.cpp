@@ -34,10 +34,11 @@ int main() {
 	// Create login obj
 	Login login;
 	login.ioCreateLogin();
-	// pass info to Login from User 
-	login.isItMatches(a);
 	// Verify whether it matches
+	login.isItMatches(a);
+	// Access granted
 
+	// Access denied
 
 
 
