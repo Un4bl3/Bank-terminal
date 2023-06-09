@@ -8,9 +8,10 @@ class Transactions {
 private:
 	double currentAmount;
 	double change;
-	BankAccount balance;
+	const BankAccount& balanceRef;
 public:
-	Transactions();
+	//Transactions();
+	Transactions(const BankAccount& balance);
 	Transactions(BankAccount& balance);
 	void getBalanceFromBa();
 	void deposit();

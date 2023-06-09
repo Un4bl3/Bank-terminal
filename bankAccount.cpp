@@ -7,7 +7,7 @@
 /*	
 *	Konstruktorius pagal nutylejima
 */
-BankAccount::BankAccount() {};
+BankAccount::BankAccount():balance(0) {};
 
 
 /*	Sukuriama banko saskaita ir siejamas "user" objektas su ja

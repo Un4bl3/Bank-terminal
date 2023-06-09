@@ -11,7 +11,7 @@ private:
 	string branch = "OOO";
 	int id;
 	string name="";
-	double balance = 14;
+	double balance = 0;
 	const User *user;
 public:
 	BankAccount() ;
