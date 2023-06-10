@@ -45,9 +45,12 @@ const User* BankAccount::getUser() const {
 * 
 *	Reikalinga Transfer klasei, ten reiksme yra apdorojama/nustatoma
 */
-double BankAccount::getBalance() const {
+double BankAccount::getBalance()  {
 	return balance;
 
+}
+void BankAccount::updateBalanceAmount(double amount) {
+	balance += amount;
 }
 
 //BankAccount User::createBankAccc(int user_id, string user_name)

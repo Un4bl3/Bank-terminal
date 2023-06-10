@@ -45,8 +45,9 @@ int main() {
 
 	// Bank Account and transactions
 	Transactions show(c);
+	show.deposit(5.21);
 	show.getBalanceFromBa();
-
+	
 
 
 

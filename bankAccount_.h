@@ -20,5 +20,6 @@ public:
 
 	void showData() const;
 	const User* getUser() const;
-	double getBalance() const;
+	double getBalance() ;
+	void updateBalanceAmount(double amount);
 };

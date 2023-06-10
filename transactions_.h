@@ -8,13 +8,13 @@ class Transactions {
 private:
 	double currentAmount;
 	double change;
-	const BankAccount& balanceRef;
+	BankAccount& balanceRef;
 public:
 	//Transactions();
-	Transactions(const BankAccount& balance);
+	//Transactions(const BankAccount& balance);
 	Transactions(BankAccount& balance);
-	void getBalanceFromBa();
-	void deposit();
+	void getBalance();
+	void deposit(double amount);
 	void transfer();
 	void withdrawl();
-};
+}; 
