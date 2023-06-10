@@ -19,12 +19,14 @@ int main() {
 	ObtainingUser obtainingUser;
 	obtainingUser.ioCreateUser();
 	User a = obtainingUser.createUserObject();
-	
+	obtainingUser.ioCreateUser();
+	User b = obtainingUser.createUserObject();
 	BankAccount c(a);
-	//c.showData();
-	const User* retrieveUser = c.getUser();
-	cout << "User name :" << retrieveUser->getName() << endl;
-	cout << "User id: " << retrieveUser->getId() << endl;
+	BankAccount recipient(b);
+	////c.showData();
+	//const User* retrieveUser = c.getUser();
+	//cout << "User name :" << retrieveUser->getName() << endl;
+	//cout << "User id: " << retrieveUser->getId() << endl;
 
 
 
@@ -47,7 +49,11 @@ int main() {
 	Transactions show(c);
 	show.deposit();
 	show.withdrawl();
+	show.transfer(recipient);
 	cout << show.getBalance();
+
+	Transactions recipeint_show(recipient);
+	cout << recipeint_show.getBalance();
 	
 
 

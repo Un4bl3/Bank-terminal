@@ -25,3 +25,7 @@ void UserInput::ioHowMuchToWithdrawl(double& amount) {
 	cout << endl << "How much you want to withdrawl: ";
 	cin >> amount;
 }
+void UserInput::ioHowMuchToTransfer(double& amount) {
+	cout << endl << "How much you want to transfer: ";
+	cin >> amount;
+}

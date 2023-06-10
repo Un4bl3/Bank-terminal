@@ -13,4 +13,5 @@ public:
 	static void ioCreateLogin(string& name, int& id);
 	static void ioHowMuchToDeposit(double& amount);
 	static void ioHowMuchToWithdrawl(double& amount);
+	static void ioHowMuchToTransfer(double& amount);
 };

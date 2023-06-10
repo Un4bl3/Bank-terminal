@@ -23,7 +23,17 @@ void Transactions::withdrawl() {
 	UserInput::ioHowMuchToWithdrawl(amount_);
 	balanceRef.updateBalanceAmount(-amount_);
 }
-void Transactions::setAmount() {
+void Transactions::transfer(BankAccount& recipeint) {
+	UserInput::ioHowMuchToTransfer(amount_);
+	if (amount_ > balanceRef.getBalance()) {
+		cout << "Insufficient balance. Transfer cannot be done." << endl ;
+		return;
+	}
+	balanceRef.updateBalanceAmount(-amount_);
+	recipeint.updateBalanceAmount(amount_);
+	cout << "transfer completed";
+};
+//void Transactions::setAmount() {
 	
 	//deposit();
-}
+//}

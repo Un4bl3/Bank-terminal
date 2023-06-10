@@ -16,6 +16,7 @@ public:
 	double getBalance();
 	void deposit();
 	void withdrawl();
-	void setAmount();
-	void transfer();
+	void transfer(BankAccount& recipeint);
+	//void setAmount();
+	
 }; 
