@@ -11,4 +11,6 @@ public:
 	static void ioCreateUser(string& name, string& surname, int& age);
 	// Metodas skirtas duomenu gavimui "Login" klases objektams
 	static void ioCreateLogin(string& name, int& id);
+	static void ioHowMuchToDeposit(double& amount);
+	static void ioHowMuchToWithdrawl(double& amount);
 };

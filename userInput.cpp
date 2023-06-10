@@ -17,3 +17,11 @@ void UserInput::ioCreateLogin(string& name, int& id) {
 	cout << endl <<"Type in your id: ";
 	cin >> id;
 }
+void UserInput::ioHowMuchToDeposit(double& amount) {
+	cout << endl << "How much you want to deposit ";
+	cin >> amount;
+}
+void UserInput::ioHowMuchToWithdrawl(double& amount) {
+	cout << endl << "How much you want to withdrawl: ";
+	cin >> amount;
+}

@@ -9,15 +9,21 @@ Transactions::Transactions(BankAccount& balance) : balanceRef(balance) {}
 */
 //Transactions::Transactions() {}
 // Direct reference to balance object
-Transactions::Transactions(BankAccount& balance) : balanceRef(balance) {
-	this->currentAmount = balanceRef.getBalance();
+Transactions::Transactions(BankAccount& balance) : balanceRef(balance), amount_(0) {}
+
+double Transactions::getBalance() {
+	return balanceRef.getBalance();
 }
-//Transactions::Transactions(const BankAccount& balance) : balanceRef(balance) {}
-void Transactions::getBalance() {
-	 
-	cout << currentAmount;
-}
-void Transactions::deposit(double amount) {
+void Transactions::deposit() {
 	//currentAmount += amount;
-	balanceRef.updateBalanceAmount(amount);
+	UserInput::ioHowMuchToDeposit(amount_);
+	balanceRef.updateBalanceAmount(amount_);
+}
+void Transactions::withdrawl() {
+	UserInput::ioHowMuchToWithdrawl(amount_);
+	balanceRef.updateBalanceAmount(-amount_);
+}
+void Transactions::setAmount() {
+	
+	//deposit();
 }

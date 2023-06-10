@@ -33,10 +33,10 @@ int main() {
 	// use ioLogin in member functions
 	
 	// Create login obj
-	Login login;
-	login.ioCreateLogin();
+	//Login login;
+	//login.ioCreateLogin();
 	// Verify whether it matches
-	login.isItMatches(a);
+	//login.isItMatches(a);
 	// Access granted
 
 	// Access denied
@@ -45,8 +45,9 @@ int main() {
 
 	// Bank Account and transactions
 	Transactions show(c);
-	show.deposit(5.21);
-	show.getBalanceFromBa();
+	show.deposit();
+	show.withdrawl();
+	cout << show.getBalance();
 	
 
 

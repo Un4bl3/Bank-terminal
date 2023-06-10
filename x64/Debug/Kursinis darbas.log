@@ -1,3 +1,7 @@
-﻿  transactions.cpp
-Main.obj : error LNK2019: unresolved external symbol "public: void __cdecl Transactions::getBalanceFromBa(void)const " (?getBalanceFromBa@Transactions@@QEBAXXZ) referenced in function main
-C:\Users\jarek\source\repos\Kursinis darbas\x64\Debug\Kursinis darbas.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Main.cpp
+  login.cpp
+  obtainUser.cpp
+  transactions.cpp
+  userInput.cpp
+  Generating Code...
+  Kursinis darbas.vcxproj -> C:\Users\jarek\source\repos\Kursinis darbas\x64\Debug\Kursinis darbas.exe
