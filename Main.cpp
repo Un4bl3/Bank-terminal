@@ -9,13 +9,22 @@
 #include "reader_from_csv_.h"
 #include "transactions_.h"
 #include "login_.h"
+#include "interface_.h"
 #include "Main.h"
-
+#include <Windows.h>
 using namespace std;
 	
 
 int main() {
-	
+	// Konsoles lango dydzio nustatymas
+	//HWND console = GetConsoleWindow();
+	//RECT r;
+	//GetWindowRect(console, &r);
+	//MoveWindow(console, r.left, r.top, 800, 600, TRUE);
+
+
+	Interface guide;
+	guide.interfaceLoad();
 	ObtainingUser obtainingUser;
 	obtainingUser.ioCreateUser();
 	User a = obtainingUser.createUserObject();

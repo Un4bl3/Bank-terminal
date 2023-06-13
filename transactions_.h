@@ -11,12 +11,11 @@ private:
 	BankAccount& balanceRef;
 public:
 	//Transactions();
-	//Transactions(const BankAccount& balance);
 	Transactions(BankAccount& balance);
 	double getBalance();
 	void deposit();
 	void withdrawl();
 	void transfer(BankAccount& recipeint);
-	//void setAmount();
+	
 	
 }; 

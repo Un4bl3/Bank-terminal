@@ -7,22 +7,39 @@ Transactions::Transactions(BankAccount& balance) : balanceRef(balance) {}
 //Transactions::Transactions(const BankAccount &balance):balanceRef(balance){}
 
 */
-//Transactions::Transactions() {}
-// Direct reference to balance object
+
+/*	Tiesioginis BankAccount objekto gavimas
+*	Sis konstruktorius isgauna objekta ir priskiria ji prie balanceRef, tam kad veliau
+*	butu galima modifikuoti reiksme tiesiogiai is sios klases vidaus.
+*/ 
+
 Transactions::Transactions(BankAccount& balance) : balanceRef(balance), amount_(0) {}
 
+/*
+*	Grazinamas BankAccount objekto balansas
+*/
 double Transactions::getBalance() {
 	return balanceRef.getBalance();
 }
+/*
+*	Metodas pinigu idejimui. Padidina BankAccount objekto balanso reiksme
+*/
 void Transactions::deposit() {
 	//currentAmount += amount;
 	UserInput::ioHowMuchToDeposit(amount_);
 	balanceRef.updateBalanceAmount(amount_);
 }
+/*
+*	Pinigu isdavimui. Pamazina BankAccount objekto balanso reiksme
+*/
 void Transactions::withdrawl() {
 	UserInput::ioHowMuchToWithdrawl(amount_);
 	balanceRef.updateBalanceAmount(-amount_);
 }
+/*
+*	Pinigu perleidimui. Metodas perkelia is vienos saskaitos objekto i kita pries tai patikrinus
+*	Ar pakanka pinigu perleidejui. 
+*/
 void Transactions::transfer(BankAccount& recipeint) {
 	UserInput::ioHowMuchToTransfer(amount_);
 	if (amount_ > balanceRef.getBalance()) {
