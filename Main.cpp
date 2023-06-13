@@ -23,10 +23,10 @@ int main() {
 	//MoveWindow(console, r.left, r.top, 800, 600, TRUE);
 
 
-	Interface guide;
-	guide.interfaceLoad();
-	guide.interfaceGuide();
-	ObtainingUser obtainingUser;
+	//Interface guide;
+	//guide.interfaceLoad();
+	//guide.interfaceGuide();
+	/*ObtainingUser obtainingUser;
 	obtainingUser.ioCreateUser();
 	User a = obtainingUser.createUserObject();
 	obtainingUser.ioCreateUser();
@@ -37,8 +37,11 @@ int main() {
 	const User* retrieveUser = c.getUser();
 	cout << "User name :" << retrieveUser->getName() << endl;
 	cout << "User id: " << retrieveUser->getId() << endl;
-
-
+	*/
+	Reader read("data.csv");
+	read.openReadFile();
+	read.readLines();
+	read.closeReadFile();
 
 	
 
@@ -47,14 +50,14 @@ int main() {
 
 
 	// Bank Account and transactions
-	Transactions show(c);
+	/*Transactions show(c);
 	show.deposit();
 	show.withdrawl();
 	show.transfer(recipient);
 	cout << show.getBalance();
 
 	Transactions recipeint_show(recipient);
-	cout << recipeint_show.getBalance();
+	cout << recipeint_show.getBalance();*/
 	
 
 

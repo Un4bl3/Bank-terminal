@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 using namespace std;
 /*
 *	Deklarajuoma "BankAccount" klase tam, kad "user" klases turetu supratima, kad egzistuoja tokia klase. Nes viduje yra naudojama draugiska funkcija
@@ -20,13 +21,13 @@ class User {
 		User() {};
 		User(int id, string name, string surname, int age);
 		User(string name, string surname, int age);
-		
 		// returns information of user3
 		void getUser() const;
 		// boiler plate
 		string getName() const;
 		int getId() const;
-		//int getAge();
+		int getAge() const;
+		void displayUsers(vector<User>& users);
 
 
 

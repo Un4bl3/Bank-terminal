@@ -3,9 +3,9 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
-
+#include <sstream>
 using namespace std;
-
+class User;
 class Reader {
 private:
 	ifstream file;
@@ -17,5 +17,5 @@ public:
 	~Reader() {};
 	void openReadFile();
 	void closeReadFile();
-	vector<string> readLines();
+	vector<User> readLines();
 };
