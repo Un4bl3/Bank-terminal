@@ -35,3 +35,7 @@ void ObtainingUser::giveID() {
 User ObtainingUser::createUserObject() const {
 	return User(given_id,given_name, given_surname, given_age);
 }
+
+string ObtainingUser::getName() const {
+	return given_name;
+}

@@ -15,4 +15,5 @@ public:
 	ObtainingUser(string name, string surname, int age);
 	void giveID();
 	User createUserObject() const;
+	string getName() const;
 };

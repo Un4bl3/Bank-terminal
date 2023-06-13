@@ -6,11 +6,13 @@ void Login::ioCreateLogin()
 {
 	UserInput::ioCreateLogin(typed_name, typed_id);
 }
-void Login::isItMatches(User User) {
+bool Login::isItMatches(User User) {
 	if (User.getName() == typed_name && User.getId() == typed_id) {
 		cout << endl << "Access granted";
+		return true;
 	}
 	else {
 		cout << endl << "You must leave";
+		return false;
 	}
 }

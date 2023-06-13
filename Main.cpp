@@ -25,6 +25,7 @@ int main() {
 
 	Interface guide;
 	guide.interfaceLoad();
+	guide.interfaceGuide();
 	ObtainingUser obtainingUser;
 	obtainingUser.ioCreateUser();
 	User a = obtainingUser.createUserObject();
@@ -33,24 +34,15 @@ int main() {
 	BankAccount c(a);
 	BankAccount recipient(b);
 	////c.showData();
-	//const User* retrieveUser = c.getUser();
-	//cout << "User name :" << retrieveUser->getName() << endl;
-	//cout << "User id: " << retrieveUser->getId() << endl;
+	const User* retrieveUser = c.getUser();
+	cout << "User name :" << retrieveUser->getName() << endl;
+	cout << "User id: " << retrieveUser->getId() << endl;
 
 
 
 	
 
-	// use ioLogin in member functions
 	
-	// Create login obj
-	//Login login;
-	//login.ioCreateLogin();
-	// Verify whether it matches
-	//login.isItMatches(a);
-	// Access granted
-
-	// Access denied
 
 
 

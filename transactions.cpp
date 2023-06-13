@@ -34,6 +34,11 @@ void Transactions::deposit() {
 */
 void Transactions::withdrawl() {
 	UserInput::ioHowMuchToWithdrawl(amount_);
+	if (amount_ > balanceRef.getBalance()) {
+		cout << "Insufficient balance. Withdrawl cannot be done." << endl;
+		return;
+	}
+	cout << "transfer completed";
 	balanceRef.updateBalanceAmount(-amount_);
 }
 /*
