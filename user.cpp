@@ -2,6 +2,7 @@
 #include "bankAccount_.h"
 #include <iostream>
 #include <vector>
+
 /* 
 *	Pagrindinis konstruktorius, kuris sukuria "user" objekta
 */
@@ -42,10 +43,16 @@ int User::getAge() const
 	return age;
 	
 }
-
-
-void displayUsers(vector<User>& users) {
-	for (auto user : users) {
-		user.getUser();
-	}
+void User::disp() const
+{
+	cout << name << " " << id;
 }
+/*
+*	Metodas skirts isgauti vartotojus kurie yra vektoriaus sarase 
+*/
+
+// ReturnType is ostream to get back output stream object in this case "cout"
+//ostream& operator<<(ostream& os, const User& user) {
+//	os << "Name is:" << user.getName();
+//	return os;
+//}

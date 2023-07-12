@@ -27,8 +27,8 @@ class User {
 		string getName() const;
 		int getId() const;
 		int getAge() const;
-		void displayUsers(vector<User>& users);
-
+		void disp() const;
+		//friend ostream& operator<<(ostream&,const User user);
 
 
 		//BankAccount createBankAccc(int id, string name);

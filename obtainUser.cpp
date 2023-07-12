@@ -4,13 +4,26 @@
 #include "IDgenerator.h"
 #include <iostream>
 
-/*	"ObtainingUser" klase yra atsakinga uz "User" klases objekto sukurima 
+/*	
+"	ObtainingUser" klase yra atsakinga uz "User" klases objekto sukurima 
 *   
 */
+
+
+/*
+*	Konstruktorius
+*	skururaintis id generatoriaus objekta, tam kad priskirti unikalu koda.
+*/
+
 ObtainingUser::ObtainingUser() {
 	IDgenerator generate;
 	this->given_id = generate.generateID();
 }
+
+/*
+*	Konstruktorius
+*	skururaintis id generatoriaus objekta, tam kad priskirti unikalu koda.
+*/
 ObtainingUser::ObtainingUser(string name, string surname, int age):given_name(name),given_surname(surname),given_age(age)
 {
 	IDgenerator generate;
@@ -29,8 +42,8 @@ void ObtainingUser::giveID() {
 	
 }
 
-/*	Sukuriamas "user" objektas is gautu duomenu
-* 
+/*	
+*	Sukuriamas "user" objektas is gautu duomenu
 */
 User ObtainingUser::createUserObject() const {
 	return User(given_id,given_name, given_surname, given_age);

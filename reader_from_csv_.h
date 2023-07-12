@@ -18,4 +18,5 @@ public:
 	void openReadFile();
 	void closeReadFile();
 	vector<User> readLines();
+	void displayUsers(vector<User>& users);
 };

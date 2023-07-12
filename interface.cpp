@@ -1,88 +1,92 @@
+﻿/*
+*   Si klase skirta saveikauti su vartotoju per terminalo sąsają.
+*   Veikia kaip gidas kuris nusako, kas kaip veiks programuoje.
+*/
 #include "interface_.h"
 #include "login_.h"
 #include "obtainUser_.h"
 #include "bankAccount_.h"
 #include "transactions_.h"
 #include "user_.h"
+#include "reader_from_csv_.h"
 #include <iostream>
 using namespace std;
+
+/*
+*   Pagrindinis konstruktorius. Kuriane bandyta inicilizuoti pagrindinius objektus.
+*/
 Interface::Interface()
 {
     //ObtainingUser obtainingUser;
     //Login login;
 }
-
+/*
+*   Metodas skirtas ikrauti sveikinimo teksta
+*/
 void Interface::interfaceLoad()
 {
     int terminalWidth = 80;
     int  terminalHeight = 5; 
     
   
-    // Calculate the position for the message
-    int messageWidth = 27;  // Width of the message "Hello, welcome to your terminal"
+    // Pozicijos nustatymas
+    int messageWidth = 27;  // Kiek ilgas bus tekstas
     int padding = (terminalWidth - messageWidth) / 2;
 
-    // Print empty lines to position the message vertically
+    // Tusciuju eiluciu ispausdinimas
     for (int i = 0; i < (terminalHeight / 2) - 1; i++) {
         cout << endl;
     }
 
-    // Print the message with padding
+    // vieta pries teksta
     for (int i = 0; i < padding; i++) {
         cout << " ";
     }
         cout << "Hello, welcome to your terminal" << endl;
 }
-/* Metodas kuris iskviecia skirtingus metodus priklausomai nuo vartotojo pasirinkimo 
-*
+/* 
+*    Metodas kuris iskviecia skirtingus metodus priklausomai nuo vartotojo pasirinkimo 
 */
-void Interface::interfaceGuide() {
+void Interface::interfaceGuide(vector<User>&users) {
     int choice;
     cout << endl << "Do you have an accout?";
     cout << endl << "1. Login in";
     cout << endl << "2. Sign in" << endl;
     cin >> choice;
-    // clear screen
+    // terminalo isvalymas
     cout << "\033[2J\033[H";
     if (choice == 1) {
-    //use ioLogin in member functions
 
-    // Create login obj
-    Login login;
-    login.ioCreateLogin();
-    // Verify whether it matches for alphabet
-    // For no there is no Users created 
-    /*
-    char currentChar = 'a';
-    while (currentChar <= 'z') {
-        if (login.isItMatches(currentChar)) {
-            cout << "good";
-            break;
-        }
-        else {
+    // Login objekto sukurimas
+       Interface::interfaceLogin(users);
 
-        }
-    }
-   */
-    // Access granted
 
-    // Access denied
+
     }
     else if (choice == 2) {
         Interface::interfaceCreateUser();
     }
 }
-
-void Interface::interfaceLogin(User a, BankAccount c)
+/*
+*  Metodas Login moduliui sukurimui 
+*/
+void Interface::interfaceLogin(vector<User>&users)
 {
     Login login;
     login.ioCreateLogin();
-    if (login.isItMatches(a)) {
-        cout << "\033[2J\033[H";
-        Interface::interfaceTransfer(c);
-    };
+    if (login.isItMatches(users)) {
+        cout << "we done";
+       // cout << "\033[2J\033[H";
+       // Interface::interfaceTransfer(c);
+    }
+    else {
+        cout << "It's wrong";
+    }
     
 }
+/*
+*  Metodas sukurti moduliu pinigu keliavimui
+*/
 void Interface::interfaceTransfer(BankAccount c) {
     Transactions show(c);
     int choice;
@@ -109,6 +113,9 @@ void Interface::interfaceTransfer(BankAccount c) {
             cout << show.getBalance();
         }
 }
+/*
+*   Metodas skirtas vartotojo sukurimui
+*/
 void Interface::interfaceCreateUser()
 {
     ObtainingUser obtainingUser;
@@ -120,6 +127,17 @@ void Interface::interfaceCreateUser()
     const User* retrieveUser = c.getUser();
     cout << "User name :" << retrieveUser->getName() << endl;
     cout << "User id: " << retrieveUser->getId() << endl;
-    Interface::interfaceLogin(a, c);
+    //Interface::interfaceLogin(a, c);
     
+}
+/*
+*   Method for reading csv file using class Read
+*   ReturnType is vector<User> for bringing back the vector
+*/
+std::vector<User>Interface::readUsers() {
+    Reader read("data.csv");
+    read.openReadFile();
+    vector<User>list = read.readLines();
+    read.closeReadFile();
+    return list;
 }

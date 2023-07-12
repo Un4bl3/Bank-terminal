@@ -16,6 +16,6 @@ public:
 	// Method to get input login and create an object for further verification
 	void ioCreateLogin();
 	// Metodas kuris verifikuoja ar jau sukurtas User Objektas sutampa su vartuotojo ivesta informacija
-	bool isItMatches(User user);
+	bool isItMatches(vector<User>& user);
 
 };

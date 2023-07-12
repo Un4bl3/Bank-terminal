@@ -12,10 +12,24 @@
 #include "interface_.h"
 #include "Main.h"
 #include <Windows.h>
-using namespace std;
+//using namespace std;
 	
 
 int main() {
+	Interface guide;
+	vector<User>list = guide.readUsers();
+	//list[2].disp();
+	
+	
+	guide.interfaceLoad();
+	guide.interfaceGuide(list);
+		
+
+	return 0;
+}
+
+// Everthing out of main
+
 	// Konsoles lango dydzio nustatymas
 	//HWND console = GetConsoleWindow();
 	//RECT r;
@@ -38,56 +52,31 @@ int main() {
 	cout << "User name :" << retrieveUser->getName() << endl;
 	cout << "User id: " << retrieveUser->getId() << endl;
 	*/
-	Reader read("data.csv");
-	read.openReadFile();
-	read.readLines();
-	read.closeReadFile();
-
-	
-
-	
-
-
-
 	// Bank Account and transactions
-	/*Transactions show(c);
-	show.deposit();
-	show.withdrawl();
-	show.transfer(recipient);
-	cout << show.getBalance();
+		/*Transactions show(c);
+		show.deposit();
+		show.withdrawl();
+		show.transfer(recipient);
+		cout << show.getBalance();
 
-	Transactions recipeint_show(recipient);
-	cout << recipeint_show.getBalance();*/
-	
+		Transactions recipeint_show(recipient);
+		cout << recipeint_show.getBalance();*/
 
+		/*
+			* Comeback later to include writing of seperate type vars
+			* idea: vector <Ts...>
+			Writer writer("data.csv");
 
+			if (writer.openFile()) {
+				writer.writeRow({  retrieveUser->getName(),retrieveUser->getName() });
 
-
-
-
-	/*
-	* Comeback later to include writing of seperate type vars 
-	* idea: vector <Ts...>
-	Writer writer("data.csv");
-	
-	if (writer.openFile()) {
-		writer.writeRow({  retrieveUser->getName(),retrieveUser->getName() });
-		
-		cout << "all good";
-		writer.closeFile();
-	}
-	else {
-		cout << "failed to open!";
-	}
-	*/ 
-	
-
-	return 0;
-}
-
-
-
-
+				cout << "all good";
+				writer.closeFile();
+			}
+			else {
+				cout << "failed to open!";
+			}
+			*/
 
 
 
