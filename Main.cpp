@@ -13,16 +13,26 @@
 #include "Main.h"
 #include <Windows.h>
 //using namespace std;
-	
+vector<BankAccount> connectingLists(vector<User>& users) {
+	vector<BankAccount>accounts;
+	for (auto user : users) {
+		BankAccount account(user);
+		account.disp();
+		accounts.push_back(account);
+
+	}
+	return accounts;
+}
 
 int main() {
 	Interface guide;
 	vector<User>list = guide.readUsers();
 	//list[2].disp();
 	
-	
+	vector<BankAccount>accounts = connectingLists(list);
+	accounts[1].disp(); 
 	guide.interfaceLoad();
-	guide.interfaceGuide(list);
+	guide.interfaceGuide(list,accounts);
 		
 
 	return 0;

@@ -38,18 +38,18 @@ vector<User> Reader::readLines() {
 
 		string name;
 		string surname;
-		int age;
+		int balance;
 		int id;
 		string tempString;
 		
 		getline(inputString, name, ',');
 		getline(inputString, surname, ',');
 		getline(inputString, tempString, ',');
-		age = atoi(tempString.c_str());
+		balance = atoi(tempString.c_str());
 		getline(inputString, tempString, ',');
 		id = atoi(tempString.c_str());
 
-		User user(id, name, surname, age);
+		User user(id, name, surname, balance);
 		users_from_read.push_back(user);
 		//user.getUser();
 		line = "";
@@ -59,7 +59,6 @@ vector<User> Reader::readLines() {
 
 
 }
-
 void Reader::displayUsers(vector<User>& users) {
 	for (auto user : users) {
 		user.getUser();

@@ -1,2 +1,2 @@
 ﻿  interface.cpp
-  Kursinis darbas.vcxproj -> C:\Users\jarek\source\repos\Kursinis darbas\x64\Debug\Kursinis darbas.exe
+C:\Users\jarek\source\repos\Kursinis darbas\Kursinis darbas\interface.cpp(118,31): error C2065: 'recipient': undeclared identifier

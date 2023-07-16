@@ -28,7 +28,14 @@ void UserInput::ioCreateLogin(string& name, int& id) {
 	cout << endl <<"Type in your id: ";
 	cin >> id;
 }
-
+void UserInput::ioTransactionsOptions() {
+	cout << endl << "What you want to do?" << endl;
+	cout << endl << "1. Deposit";
+	cout << endl << "2. Withdrawl";
+	cout << endl << "3. Transfer";
+	cout << endl << "4. Show balance";
+	cout << endl << "5. Get back" << endl;
+}
 /*
 *	Sie Metodai skirti pinigu perleidimui ir operacijoms su jais.
 */

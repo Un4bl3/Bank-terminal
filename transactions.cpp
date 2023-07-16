@@ -15,6 +15,10 @@ Transactions::Transactions(BankAccount& balance) : balanceRef(balance) {}
 
 Transactions::Transactions(BankAccount& balance) : balanceRef(balance), amount_(0) {}
 
+
+void Transactions::printOptions() const {
+	UserInput::ioTransactionsOptions();
+}
 /*
 *	Grazinamas BankAccount objekto balansas
 */
@@ -45,7 +49,7 @@ void Transactions::withdrawl() {
 *	Pinigu perleidimui. Metodas perkelia is vienos saskaitos objekto i kita pries tai patikrinus
 *	Ar pakanka pinigu perleidejui. 
 */
-void Transactions::transfer(BankAccount& recipeint) {
+void Transactions::transferTo(BankAccount& recipeint) {
 	UserInput::ioHowMuchToTransfer(amount_);
 	if (amount_ > balanceRef.getBalance()) {
 		cout << "Insufficient balance. Transfer cannot be done." << endl ;

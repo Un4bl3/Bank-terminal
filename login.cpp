@@ -22,14 +22,16 @@ void Login::ioCreateLogin()
 /*
 *	Tikrinama ar irasytas tekstas atitinka egzistuojanciam User objektui
 */
-bool Login::isItMatches(vector<User>& users) {
+int Login::isItMatches(vector<User>& users) {
+	int n=0;
 	for (auto user : users) {
+		n++;
 		if (user.getName() == typed_name && user.getId() == typed_id) {
-			user.getUser();
+			
 			cout << endl << "Access granted";
-			return true;
+			return n;
 		}
 	}
 	cout << endl << "You must leave";
-	return false;
+	return -1;
 }

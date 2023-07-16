@@ -15,18 +15,18 @@ class User {
 		int id;
 		string name;
 		string surname;
-		int age;
+		int balance;
 		BankAccount *account;
 	public:
 		User() {};
-		User(int id, string name, string surname, int age);
-		User(string name, string surname, int age);
+		User(int id, string name, string surname, int balance);
+		User(string name, string surname, int balance);
 		// returns information of user3
 		void getUser() const;
 		// boiler plate
 		string getName() const;
 		int getId() const;
-		int getAge() const;
+		int getBalance() const;
 		void disp() const;
 		//friend ostream& operator<<(ostream&,const User user);
 

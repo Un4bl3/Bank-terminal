@@ -14,4 +14,5 @@ public:
 	static void ioHowMuchToDeposit(double& amount);
 	static void ioHowMuchToWithdrawl(double& amount);
 	static void ioHowMuchToTransfer(double& amount);
+	static void ioTransactionsOptions();
 };

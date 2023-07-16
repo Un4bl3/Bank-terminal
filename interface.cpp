@@ -47,7 +47,7 @@ void Interface::interfaceLoad()
 /* 
 *    Metodas kuris iskviecia skirtingus metodus priklausomai nuo vartotojo pasirinkimo 
 */
-void Interface::interfaceGuide(vector<User>&users) {
+void Interface::interfaceGuide(vector<User>&users, vector<BankAccount>&accounts) {
     int choice;
     cout << endl << "Do you have an accout?";
     cout << endl << "1. Login in";
@@ -58,7 +58,7 @@ void Interface::interfaceGuide(vector<User>&users) {
     if (choice == 1) {
 
     // Login objekto sukurimas
-       Interface::interfaceLogin(users);
+       Interface::interfaceLogin(users, accounts);
 
 
 
@@ -70,17 +70,26 @@ void Interface::interfaceGuide(vector<User>&users) {
 /*
 *  Metodas Login moduliui sukurimui 
 */
-void Interface::interfaceLogin(vector<User>&users)
-{
+// REDESIGN THIS PART
+void Interface::interfaceLogin(vector<User>&users, vector<BankAccount>&accounts)
+{ 
     Login login;
+    
     login.ioCreateLogin();
-    if (login.isItMatches(users)) {
-        cout << "we done";
-       // cout << "\033[2J\033[H";
-       // Interface::interfaceTransfer(c);
+    int i = login.isItMatches(users);
+    if (i >= 0) {
+        i--;
+        if (i < accounts.size()) {
+            
+            cout << "Login succesful " << i;
+            Interface::interfaceTransfer(accounts[i], accounts);
+        }
+        else {
+            cout << "Error: Invalid index for accounts vector";
+        }
     }
     else {
-        cout << "It's wrong";
+        cout << "Login failed, there is no such user";
     }
     
 }
@@ -88,30 +97,33 @@ void Interface::interfaceLogin(vector<User>&users)
 *  Metodas sukurti moduliu pinigu keliavimui
 */
 void Interface::interfaceTransfer(BankAccount c) {
-    Transactions show(c);
-    int choice;
-    cout << endl << "What you want to do?" << endl;
-    cout << endl << "1. Deposit";
-    cout << endl << "2. Withdrawl";
-    cout << endl << "3. Transfer";
-    cout << endl << "4. Show balance";
-    cout << endl << "5. Get back" << endl;
-    cin >> choice;
+    Transactions transfer(c);
+    c.disp();
+    int recipientID;
+    int choice = 0;
+    while (choice != 6) {
+        cout << "\033[2J\033[H";
+        cout << " Your balance is: " << c.getBalance();
+        transfer.printOptions();
+        cin >> choice;
+   
         if (choice == 1) {
-            show.deposit();
-            cout << show.getBalance();
+            transfer.deposit();
+            cout << transfer.getBalance();
         }
         else if (choice == 2) {
-            show.withdrawl();
-            cout << show.getBalance();
+            transfer.withdrawl();
+            cout << transfer.getBalance();
         }
         else if (choice == 3) {
-            //show.transfer(recipient);
-            cout << show.getBalance();
+            transfer.transferTo(recipientID);
+            cout << transfer.getBalance();
         }
         else if (choice == 4) {
-            cout << show.getBalance();
+            cout << transfer.getBalance();
+
         }
+    }
 }
 /*
 *   Metodas skirtas vartotojo sukurimui

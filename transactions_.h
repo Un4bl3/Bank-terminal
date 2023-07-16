@@ -12,10 +12,11 @@ private:
 public:
 	//Transactions();
 	Transactions(BankAccount& balance);
+	void printOptions() const;
 	double getBalance();
 	void deposit();
 	void withdrawl();
-	void transfer(BankAccount& recipeint);
+	void transfetTo(BankAccount& recipeint);
 	
 	
 }; 

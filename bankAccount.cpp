@@ -7,14 +7,20 @@
 /*	
 *	Konstruktorius pagal nutylejima
 */
-BankAccount::BankAccount():balance(0) {};
+BankAccount::BankAccount() {};
 
 
 /*	Sukuriama banko saskaita ir siejamas "user" objektas su ja
 * 
 *	Konstruktorius kuris priema "User" objekto adresa kaip argumenta ir susieja su "BankAccount".
 */
-BankAccount::BankAccount(const User &user) : user(&user) {}
+BankAccount::BankAccount(const User &user) : user(&user) {
+	this->name = user.getName();
+	this->id = user.getId();
+	this->balance = user.getBalance();
+}
+
+
 
 
 /*	Duomenu atvaizdavimas banko saskaitos ir User objekto reiksmes
@@ -29,6 +35,10 @@ void BankAccount::showData() const
 	cout << "Your name is: " << getUser()->getName() << endl;
 	cout << "And your id is: " << getUser()->getId() << endl;
 
+}
+void BankAccount::disp() const
+{
+	cout << name << " " << id << " " << balance << endl;
 }
 /*	Gaunamas "User" objektas susietas su "BankAccount" klase 
 *	
@@ -52,6 +62,14 @@ double BankAccount::getBalance()  {
 void BankAccount::updateBalanceAmount(double amount) {
 	balance += amount;
 }
+
+//vector<BankAccount> BankAccount::createBankAccountsFromList(vector<User>&users)
+//{
+//	for (auto user : users) {
+//
+//	}
+//	return vector<BankAccount>();
+//}
 
 //BankAccount User::createBankAccc(int user_id, string user_name)
 //{

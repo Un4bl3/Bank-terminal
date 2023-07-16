@@ -6,8 +6,8 @@
 /* 
 *	Pagrindinis konstruktorius, kuris sukuria "user" objekta
 */
-User::User(int id, string name, string surname, int age):id(id),name(name),surname(surname),age(age) {}
-User::User(string name, string surname, int age) : name(name), surname(surname), age(age) {}
+User::User(int id, string name, string surname, int balance):id(id),name(name),surname(surname),balance(balance) {}
+User::User(string name, string surname, int balance) : name(name), surname(surname), balance(balance) {}
 
 /*
 *  Konstruktorius read_from_csv Reader klasei
@@ -20,7 +20,7 @@ void User::getUser() const
 {
 	cout << "Your ID is: " << this->id << endl;
 	cout << "Your name is: " << this->name << " " << this->surname << endl;
-	cout << "And your age: " << this->age << endl;
+	cout << "And your age: " << this->balance << endl;
 
 }
 /*
@@ -38,9 +38,9 @@ int User::getId() const
 
 }
 
-int User::getAge() const
+int User::getBalance() const
 {
-	return age;
+	return balance;
 	
 }
 void User::disp() const
