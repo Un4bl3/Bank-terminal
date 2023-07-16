@@ -15,4 +15,5 @@ public:
 	static void ioHowMuchToWithdrawl(double& amount);
 	static void ioHowMuchToTransfer(double& amount);
 	static void ioTransactionsOptions();
+	static int ioTransferGetID();
 };

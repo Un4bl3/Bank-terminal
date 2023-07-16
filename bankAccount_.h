@@ -25,4 +25,5 @@ public:
 	void updateBalanceAmount(double amount);
 	vector<BankAccount> createBankAccountsFromList(vector<User>&users);
 	void disp() const;
+	int getID();
 };

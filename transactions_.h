@@ -9,6 +9,7 @@ class Transactions {
 private:
 	double amount_;
 	BankAccount& balanceRef;
+	
 public:
 	//Transactions();
 	Transactions(BankAccount& balance);
@@ -16,7 +17,7 @@ public:
 	double getBalance();
 	void deposit();
 	void withdrawl();
-	void transfetTo(BankAccount& recipeint);
-	
+	void transferTo(BankAccount& acount, vector<BankAccount>& accounts);
+	BankAccount* searchForTransferAcc(int id, vector<BankAccount>& accounts);
 	
 }; 

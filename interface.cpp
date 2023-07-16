@@ -96,14 +96,14 @@ void Interface::interfaceLogin(vector<User>&users, vector<BankAccount>&accounts)
 /*
 *  Metodas sukurti moduliu pinigu keliavimui
 */
-void Interface::interfaceTransfer(BankAccount c) {
-    Transactions transfer(c);
-    c.disp();
+void Interface::interfaceTransfer(BankAccount account, vector<BankAccount>& accounts) {
+    Transactions transfer(account);
+    account.disp();
     int recipientID;
     int choice = 0;
     while (choice != 6) {
-        cout << "\033[2J\033[H";
-        cout << " Your balance is: " << c.getBalance();
+       // cout << "\033[2J\033[H";
+        cout << " Your balance is: " << account.getBalance();
         transfer.printOptions();
         cin >> choice;
    
@@ -116,7 +116,7 @@ void Interface::interfaceTransfer(BankAccount c) {
             cout << transfer.getBalance();
         }
         else if (choice == 3) {
-            transfer.transferTo(recipientID);
+            transfer.transferTo(account, accounts);
             cout << transfer.getBalance();
         }
         else if (choice == 4) {

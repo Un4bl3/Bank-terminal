@@ -36,6 +36,12 @@ void UserInput::ioTransactionsOptions() {
 	cout << endl << "4. Show balance";
 	cout << endl << "5. Get back" << endl;
 }
+int UserInput::ioTransferGetID() {
+	int id;
+	cout << endl << "Enter recipients ID: ";
+	cin >> id;
+	return id;
+}
 /*
 *	Sie Metodai skirti pinigu perleidimui ir operacijoms su jais.
 */

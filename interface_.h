@@ -11,5 +11,5 @@ public:
 	void interfaceLogin(vector<User>&users,vector<BankAccount>&accounts);
 	void interfaceCreateUser();
 	std::vector<User> readUsers();
-	void interfaceTransfer(BankAccount c);
+	void interfaceTransfer(BankAccount account, vector<BankAccount>& accounts);
 };

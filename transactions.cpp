@@ -13,7 +13,7 @@ Transactions::Transactions(BankAccount& balance) : balanceRef(balance) {}
 *	butu galima modifikuoti reiksme tiesiogiai is sios klases vidaus.
 */ 
 
-Transactions::Transactions(BankAccount& balance) : balanceRef(balance), amount_(0) {}
+Transactions::Transactions(BankAccount& balance) : balanceRef(balance), amount_(0){}
 
 
 void Transactions::printOptions() const {
@@ -45,18 +45,31 @@ void Transactions::withdrawl() {
 	cout << "transfer completed";
 	balanceRef.updateBalanceAmount(-amount_);
 }
-/*
-*	Pinigu perleidimui. Metodas perkelia is vienos saskaitos objekto i kita pries tai patikrinus
-*	Ar pakanka pinigu perleidejui. 
-*/
-void Transactions::transferTo(BankAccount& recipeint) {
+BankAccount* Transactions::searchForTransferAcc(int id, vector<BankAccount>& accounts)
+{
+	for (auto &account : accounts) {
+		if (id == account.getID()) {
+			return &account;
+		}
+	}
+	return nullptr;
+}
+
+void Transactions::transferTo(BankAccount& account, vector<BankAccount>& accounts) {
+	
+	int id;
+	id = UserInput::ioTransferGetID();
+	
+	BankAccount* recipientPtr = Transactions::searchForTransferAcc(id, accounts);
 	UserInput::ioHowMuchToTransfer(amount_);
-	if (amount_ > balanceRef.getBalance()) {
+	if (amount_ > account.getBalance()) {
 		cout << "Insufficient balance. Transfer cannot be done." << endl ;
 		return;
 	}
-	balanceRef.updateBalanceAmount(-amount_);
-	recipeint.updateBalanceAmount(amount_);
+	account.updateBalanceAmount(-amount_);
+	recipientPtr->updateBalanceAmount(amount_);
+	recipientPtr->disp();
+	
 	cout << "transfer completed";
 };
 //void Transactions::setAmount() {
