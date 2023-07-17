@@ -4,9 +4,9 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
-
+#include "bankAccount_.h"
 using namespace std;
-
+class BankAccount;
 class Writer {
 private:
 	ofstream file;
@@ -17,8 +17,6 @@ public:
 	Writer(const string& filename);
 	bool openFile();
 	void closeFile();
-	//template<typename Ts..>
-	void writeRow( const vector<string> & row);
-	//void writeObj((char*)&obj);
+	void writeFile(const vector<BankAccount> & accounts);
 
 };

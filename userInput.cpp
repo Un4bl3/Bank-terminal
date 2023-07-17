@@ -14,8 +14,6 @@ void UserInput::ioCreateUser(string& name, string& surname, int &age)
 	cin >> name;
 	cout << endl << "Type in surname: ";
 	cin >> surname;
-	cout << endl << "Type in age: ";
-	cin >> age;
 	cout << endl << endl;
 }
 /*
@@ -34,7 +32,7 @@ void UserInput::ioTransactionsOptions() {
 	cout << endl << "2. Withdrawl";
 	cout << endl << "3. Transfer";
 	cout << endl << "4. Show balance";
-	cout << endl << "5. Get back" << endl;
+	cout << endl << "5. Exit" << endl;
 }
 int UserInput::ioTransferGetID() {
 	int id;

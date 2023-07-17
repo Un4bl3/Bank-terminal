@@ -38,15 +38,12 @@ void ObtainingUser::ioCreateUser() {
 	UserInput::ioCreateUser(given_name, given_surname, given_age);
 	
 }
-void ObtainingUser::giveID() {
-	
-}
 
 /*	
 *	Sukuriamas "user" objektas is gautu duomenu
 */
 User ObtainingUser::createUserObject() const {
-	return User(given_id,given_name, given_surname, given_age);
+	return User(given_id,given_name, given_surname, 0);
 }
 
 string ObtainingUser::getName() const {

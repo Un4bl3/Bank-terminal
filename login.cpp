@@ -28,10 +28,10 @@ int Login::isItMatches(vector<User>& users) {
 		n++;
 		if (user.getName() == typed_name && user.getId() == typed_id) {
 			
-			cout << endl << "Access granted";
+			cout << endl << "Access granted. ";
 			return n;
 		}
 	}
-	cout << endl << "You must leave";
+	cout << endl << "Access denied. ";
 	return -1;
 }

@@ -21,20 +21,18 @@ void Writer::closeFile() {
 // Need to write string and int provided some vectors
 // Also there is problem in output. Occurance of numbers between spaces.
 //template<typename Ts...>
-void Writer::writeRow(const vector<string> &  row) {
+void Writer::writeFile(const vector<BankAccount> &accounts) {
+	openFile();
 	if (!file.is_open()) {
 		cout << "Error: file is closed" << endl;
 		return;
 	}
 	else {
-		for (size_t i = 0; i < row.size(); i++) {
-			file << row[i];
-			if (i < row.size() - 1) {
-				file << ', ';
-			}
+		for (auto account : accounts) {
+			file << "\"" << account.getName() << "\",\""  << "---" << "\"," << account.getBalance() << "," << account.getID() << endl;
 		}
-		file << endl;
 	}
+	closeFile();
 }
 //void Writer::writeObj((char*)&obj, sizeof(obj));
 

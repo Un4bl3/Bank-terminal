@@ -39,6 +39,10 @@ void BankAccount::showData() const
 int BankAccount::getID() {
 	return id;
 }
+string BankAccount::getName() {
+	return name;
+}
+
 void BankAccount::disp() const
 {
 	cout << name << " " << id << " " << balance << endl;

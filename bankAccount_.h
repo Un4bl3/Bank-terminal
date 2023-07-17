@@ -26,4 +26,5 @@ public:
 	vector<BankAccount> createBankAccountsFromList(vector<User>&users);
 	void disp() const;
 	int getID();
+	string getName();
 };

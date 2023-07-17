@@ -45,6 +45,11 @@ void Transactions::withdrawl() {
 	cout << "transfer completed";
 	balanceRef.updateBalanceAmount(-amount_);
 }
+/*
+*	Method responsible for searching recipient by ID.
+*	The outcome is returned in form of pointer to an object.
+*	Account is searched through vector.
+*/
 BankAccount* Transactions::searchForTransferAcc(int id, vector<BankAccount>& accounts)
 {
 	for (auto &account : accounts) {
@@ -54,7 +59,12 @@ BankAccount* Transactions::searchForTransferAcc(int id, vector<BankAccount>& acc
 	}
 	return nullptr;
 }
-
+/*
+*	This method is responsible for transfering funds to desired account
+*	Uses another member method for finding recipient. Also, UserInput class is called for inputs. In first case 
+*	to get recipients ID and second to ask for the sum to transfer.
+*	Desired account is returned in form of pointer and then using it value are passed and changed.
+*/
 void Transactions::transferTo(BankAccount& account, vector<BankAccount>& accounts) {
 	
 	int id;

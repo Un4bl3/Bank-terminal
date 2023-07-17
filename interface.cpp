@@ -9,6 +9,7 @@
 #include "transactions_.h"
 #include "user_.h"
 #include "reader_from_csv_.h"
+#include "writer_to_csv_.h"
 #include <iostream>
 using namespace std;
 
@@ -49,9 +50,10 @@ void Interface::interfaceLoad()
 */
 void Interface::interfaceGuide(vector<User>&users, vector<BankAccount>&accounts) {
     int choice;
-    cout << endl << "Do you have an accout?";
-    cout << endl << "1. Login in";
-    cout << endl << "2. Sign in" << endl;
+    cout << endl << "Do you have an accout?" << endl;
+    cout << endl << "1. Login in" << endl;
+    cout << endl << "2. Create account" << endl;
+    cout << endl << "3. Exit program" << endl;
     cin >> choice;
     // terminalo isvalymas
     cout << "\033[2J\033[H";
@@ -64,7 +66,10 @@ void Interface::interfaceGuide(vector<User>&users, vector<BankAccount>&accounts)
 
     }
     else if (choice == 2) {
-        Interface::interfaceCreateUser();
+        Interface::interfaceCreateUser(users, accounts);
+    }
+    else if (choice == 3) {
+
     }
 }
 /*
@@ -81,15 +86,15 @@ void Interface::interfaceLogin(vector<User>&users, vector<BankAccount>&accounts)
         i--;
         if (i < accounts.size()) {
             
-            cout << "Login succesful " << i;
+            cout << "Login succesful. " << i;
             Interface::interfaceTransfer(accounts[i], accounts);
         }
         else {
-            cout << "Error: Invalid index for accounts vector";
+            cout << "Error: Invalid index for accounts vector. ";
         }
     }
     else {
-        cout << "Login failed, there is no such user";
+        cout << "Login failed, there is no such user.";
     }
     
 }
@@ -101,8 +106,8 @@ void Interface::interfaceTransfer(BankAccount account, vector<BankAccount>& acco
     account.disp();
     int recipientID;
     int choice = 0;
-    while (choice != 6) {
-       // cout << "\033[2J\033[H";
+    while (choice != 5) {
+        cout << "\033[2J\033[H";
         cout << " Your balance is: " << account.getBalance();
         transfer.printOptions();
         cin >> choice;
@@ -120,7 +125,7 @@ void Interface::interfaceTransfer(BankAccount account, vector<BankAccount>& acco
             cout << transfer.getBalance();
         }
         else if (choice == 4) {
-            cout << transfer.getBalance();
+            cout << account.getBalance();
 
         }
     }
@@ -128,19 +133,25 @@ void Interface::interfaceTransfer(BankAccount account, vector<BankAccount>& acco
 /*
 *   Metodas skirtas vartotojo sukurimui
 */
-void Interface::interfaceCreateUser()
+void Interface::interfaceCreateUser(vector<User>& users, vector<BankAccount>& accounts)
 {
     ObtainingUser obtainingUser;
     obtainingUser.ioCreateUser();
 
     User a = obtainingUser.createUserObject();
-    cout << "user created" << endl;
+    cout << "User created " << endl;
     BankAccount c(a);
     const User* retrieveUser = c.getUser();
     cout << "User name :" << retrieveUser->getName() << endl;
     cout << "User id: " << retrieveUser->getId() << endl;
-    //Interface::interfaceLogin(a, c);
+    users.push_back(a);
+    accounts.push_back(c);
+    Writer write("Data_06.15.csv");
+    write.writeFile(accounts);
+
+    Interface::interfaceLogin(users, accounts);
     
+   
 }
 /*
 *   Method for reading csv file using class Read
