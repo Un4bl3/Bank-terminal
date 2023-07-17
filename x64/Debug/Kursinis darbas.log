@@ -1,6 +1,0 @@
-﻿  interface.cpp
-C:\Users\jarek\source\repos\Kursinis darbas\Kursinis darbas\interface.cpp(125,9): warning C4101: 'recipientID': unreferenced local variable
-  login.cpp
-  userInput.cpp
-  Generating Code...
-  Kursinis darbas.vcxproj -> C:\Users\jarek\source\repos\Kursinis darbas\x64\Debug\Kursinis darbas.exe
