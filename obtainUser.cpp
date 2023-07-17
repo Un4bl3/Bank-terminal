@@ -4,48 +4,45 @@
 #include "IDgenerator.h"
 #include <iostream>
 
-/*	
-"	ObtainingUser" klase yra atsakinga uz "User" klases objekto sukurima 
-*   
+/*
+*	Class responsible for obtaining user information and creating User objects.
 */
 
 
 /*
-*	Konstruktorius
-*	skururaintis id generatoriaus objekta, tam kad priskirti unikalu koda.
+*	Default constructor that generates a unique ID using the IDgenerator object.
 */
-
 ObtainingUser::ObtainingUser() {
 	IDgenerator generate;
 	this->given_id = generate.generateID();
 }
 
 /*
-*	Konstruktorius
-*	skururaintis id generatoriaus objekta, tam kad priskirti unikalu koda.
+*	Parameterized constructor that generates a unique ID using the IDgenerator object and initializes the given_name, given_surname, and given_balance members.
 */
-ObtainingUser::ObtainingUser(string name, string surname, int age):given_name(name),given_surname(surname),given_age(age)
+ObtainingUser::ObtainingUser(string name, string surname, int balance):given_name(name),given_surname(surname),given_balance(balance)
 {
 	IDgenerator generate;
 	this->given_id = generate.generateID();
 }
 
 /*
-*	Funkcija skirta iskvietimui is "UserInput" klases "ioInterface" funkcija 
-*	kuri praso vartotoja ivesti reikalingus duomenis "user" objektui sukurimui
+*	Method for obtaining user information by calling the ioCreateUser function from the UserInput class.
 */
 void ObtainingUser::ioCreateUser() {
-	UserInput::ioCreateUser(given_name, given_surname, given_age);
+	UserInput::ioCreateUser(given_name, given_surname, given_balance);
 	
 }
 
 /*	
-*	Sukuriamas "user" objektas is gautu duomenu
+*	Method for creating a User object using the obtained user information.
 */
 User ObtainingUser::createUserObject() const {
 	return User(given_id,given_name, given_surname, 0);
 }
-
+/*
+*	Method for retrieving the name of the user.
+*/
 string ObtainingUser::getName() const {
 	return given_name;
 }

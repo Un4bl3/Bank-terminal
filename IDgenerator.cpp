@@ -4,17 +4,23 @@
 #include <iostream>
 
 /*
-*  Klase skirtta unikalaus kodo generavimui, kuris reikalingas Vartotojui
+*	Class responsible for generating unique IDs for users.
 */
+
 IDgenerator::IDgenerator() {}
+
+/*
+*	Constructor that generates an ID and assigns it to the given parameter.
+*	Parameters:
+*	- id: Reference to an integer where the generated ID will be assigned.
+*/
 IDgenerator::IDgenerator(int &id)
 {
 	id = generateID();
 
 };
-/*	
-*	Algoritmas veikia naudojant chrono biblioteka. ID generuojamas pagal dabartini laika ir pristatomas sekundemis.
-*	Grazinama, kaip unsigned int, nes kitaip rodomas skaicius yra neigiamas.
+/*
+*	Method for generating a unique ID based on the current timestamp.
 */
 unsigned int IDgenerator::generateID() const{
 	auto now = chrono::system_clock::now();

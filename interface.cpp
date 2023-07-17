@@ -2,6 +2,8 @@
 *   Si klase skirta saveikauti su vartotoju per terminalo sąsają.
 *   Veikia kaip gidas kuris nusako, kas kaip veiks programuoje.
 */
+#include <iostream>
+
 #include "interface_.h"
 #include "login_.h"
 #include "obtainUser_.h"
@@ -10,78 +12,90 @@
 #include "user_.h"
 #include "reader_from_csv_.h"
 #include "writer_to_csv_.h"
-#include <iostream>
+
 using namespace std;
 
 /*
-*   Pagrindinis konstruktorius. Kuriane bandyta inicilizuoti pagrindinius objektus.
+*	Class responsible for managing the user interface and coordinating interactions between different classes.
 */
-Interface::Interface()
-{
-    //ObtainingUser obtainingUser;
-    //Login login;
-}
+Interface::Interface()  {}
+
 /*
-*   Metodas skirtas ikrauti sveikinimo teksta
+*	Method for displaying the initial interface screen.
+*	Prints a welcome message centered on the screen.
 */
-void Interface::interfaceLoad()
-{
+void Interface::interfaceLoad() {
     int terminalWidth = 80;
     int  terminalHeight = 5; 
     
   
-    // Pozicijos nustatymas
-    int messageWidth = 27;  // Kiek ilgas bus tekstas
+    // Positioning calculation
+    int messageWidth = 27;  // Length of the message
     int padding = (terminalWidth - messageWidth) / 2;
 
-    // Tusciuju eiluciu ispausdinimas
+    // Printing empty lines
     for (int i = 0; i < (terminalHeight / 2) - 1; i++) {
         cout << endl;
     }
 
-    // vieta pries teksta
+    // Positioning before the text
     for (int i = 0; i < padding; i++) {
         cout << " ";
     }
         cout << "Hello, welcome to your terminal" << endl;
 }
-/* 
-*    Metodas kuris iskviecia skirtingus metodus priklausomai nuo vartotojo pasirinkimo 
+
+/*
+*	Method for guiding the user through the interface.
+*	Prompts the user to choose an action: login, create an account, or exit the program.
+*	Based on the choice, it calls the respective interface method.
+*	Parameters:
+*	- users: Reference to the vector of User objects.
+*	- accounts: Reference to the vector of BankAccount objects.
 */
 void Interface::interfaceGuide(vector<User>&users, vector<BankAccount>&accounts) {
+
     int choice;
+
     cout << endl << "Do you have an accout?" << endl;
     cout << endl << "1. Login in" << endl;
     cout << endl << "2. Create account" << endl;
-    cout << endl << "3. Exit program" << endl;
+    cout << endl << "3. Exit program" << endl << endl;
     cin >> choice;
-    // terminalo isvalymas
+
+    // Clearing the terminal
     cout << "\033[2J\033[H";
+
     if (choice == 1) {
 
-    // Login objekto sukurimas
+        // Create a Login object and initiate the login process
        Interface::interfaceLogin(users, accounts);
-
-
 
     }
     else if (choice == 2) {
+
+        // Create a new user account
         Interface::interfaceCreateUser(users, accounts);
+
     }
     else if (choice == 3) {
+
+        // Exit the program
 
     }
 }
 /*
-*  Metodas Login moduliui sukurimui 
+*	Method for handling the user login process.
+*	Creates a Login object, prompts the user for login information, and checks if the login matches any user.
+*	If the login is successful, calls the interfaceTransfer method to perform account transactions.
 */
-// REDESIGN THIS PART
-void Interface::interfaceLogin(vector<User>&users, vector<BankAccount>&accounts)
-{ 
+void Interface::interfaceLogin(vector<User>&users, vector<BankAccount>&accounts) { 
+   
     Login login;
     
     login.ioCreateLogin();
     int i = login.isItMatches(users);
+
     if (i >= 0) {
         i--;
         if (i < accounts.size()) {
@@ -98,14 +112,23 @@ void Interface::interfaceLogin(vector<User>&users, vector<BankAccount>&accounts)
     }
     
 }
+
 /*
-*  Metodas sukurti moduliu pinigu keliavimui
+*	Method for handling the account transactions interface.
+*	Allows the user to perform various transactions: deposit, withdrawal, transfer, or view balance.
+*	Continuously prompts the user for a choice until they choose to exit.
+*	Parameters:
+*	- account: Reference to the BankAccount object representing the logged-in account.
+*	- accounts: Reference to the vector of BankAccount objects.
 */
 void Interface::interfaceTransfer(BankAccount account, vector<BankAccount>& accounts) {
+
     Transactions transfer(account);
     account.disp();
+
     int recipientID;
     int choice = 0;
+
     while (choice != 5) {
         cout << "\033[2J\033[H";
         cout << " Your balance is: " << account.getBalance();
@@ -117,7 +140,7 @@ void Interface::interfaceTransfer(BankAccount account, vector<BankAccount>& acco
             cout << transfer.getBalance();
         }
         else if (choice == 2) {
-            transfer.withdrawl();
+            transfer.withdrawal();
             cout << transfer.getBalance();
         }
         else if (choice == 3) {
@@ -130,37 +153,52 @@ void Interface::interfaceTransfer(BankAccount account, vector<BankAccount>& acco
         }
     }
 }
+
 /*
-*   Metodas skirtas vartotojo sukurimui
+*	Method for handling the user account creation process.
+*	Creates an ObtainingUser object, prompts the user for account information, creates a new User object,
+*	and adds it to the users vector. Also creates a corresponding BankAccount object and adds it to the accounts vector.
+*	Writes the account information to a CSV file using the Writer class.
+*	After successful account creation, calls the interfaceLogin method to proceed with login.
+*	Parameters:
+*	- users: Reference to the vector of User objects.
+*	- accounts: Reference to the vector of BankAccount objects.
 */
-void Interface::interfaceCreateUser(vector<User>& users, vector<BankAccount>& accounts)
-{
+void Interface::interfaceCreateUser(vector<User>& users, vector<BankAccount>& accounts) {
+
     ObtainingUser obtainingUser;
     obtainingUser.ioCreateUser();
 
     User a = obtainingUser.createUserObject();
     cout << "User created " << endl;
+
     BankAccount c(a);
     const User* retrieveUser = c.getUser();
+
     cout << "User name :" << retrieveUser->getName() << endl;
     cout << "User id: " << retrieveUser->getId() << endl;
     users.push_back(a);
     accounts.push_back(c);
-    Writer write("Data_06.15.csv");
+
+    Writer write("Data_.csv");
     write.writeFile(accounts);
 
     Interface::interfaceLogin(users, accounts);
-    
-   
+      
 }
+
 /*
-*   Method for reading csv file using class Read
-*   ReturnType is vector<User> for bringing back the vector
+*	Method for reading user information from a CSV file.
+*	Creates a Reader object, opens the file, reads the lines, closes the file, and returns the vector of User objects.
 */
-std::vector<User>Interface::readUsers() {
+vector<User>Interface::readUsers() {
+
     Reader read("data.csv");
     read.openReadFile();
+
     vector<User>list = read.readLines();
     read.closeReadFile();
+
     return list;
+
 }

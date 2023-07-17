@@ -62,9 +62,6 @@
     <ClInclude Include="user_.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="5tr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="obtainUser_.h">
       <Filter>Header Files</Filter>
     </ClInclude>

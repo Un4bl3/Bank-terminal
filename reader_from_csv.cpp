@@ -1,20 +1,22 @@
 #include "reader_from_csv_.h"
 #include "user_.h"
-// to be continued. 
-// the task is too hard to implement now.
-Reader::Reader(const string& filename) : filename(filename)
-{
-}
 /*
-*  Sis metodas atidaro faila, jeigu jis yra uzdarytas 
+*	Class for reading from a file in CSV format
+*/
+
+Reader::Reader(const string& filename) : filename(filename) {}
+
+/*
+*	This method opens the file if it is closed.
 */
 void Reader::openReadFile() {
 	if (!file.is_open()) {
 		file.open(filename);
 	}
 }
+
 /*
-*  Sis metodas uzdaro faila, jeigu jis yra atidarytas 
+*	This method closes the file if it is open.
 */
 void Reader::closeReadFile() {
 	if (file.is_open()) {
@@ -22,13 +24,13 @@ void Reader::closeReadFile() {
 	}
 }
 /*
-*	Sis metodas nuskaito kiekviena reiksme po kablelio. Grazinamas objekto User vektorius,
-*	tam kad veliau galima butu sukurti user pagal kiekviena vektoraius elementa.
-*	Papildonai naudojama biblioteka sstream, kad nuskaityti is failo.
-*	
-*	Pirma nuskaitoma reiksme ir sudedama i laikina kintamaji. Veliau is tu kintamuju duomenys keliauja i objekta User sukurti objekta.
-*	Sie objektai irasomi i dinamini vektoriu. 
-*	
+*	This method reads each value separated by a comma from the file.
+*	It returns a vector of User objects to create users based on each vector element later on.
+*	The sstream library is used to read from the file.
+*
+*	First, each value is read and stored in temporary variables.
+*	Then, the data from the temporary variables is used to create a User object.
+*	These User objects are stored in a dynamic vector.
 */
 vector<User> Reader::readLines() {
 	vector<User> users_from_read;

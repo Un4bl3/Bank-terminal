@@ -1,69 +1,81 @@
 #include "bankAccount_.h"
 #include "transactions_.h"
 #include <iostream>
+
+
 /*
-Transactions::Transactions() {};
-Transactions::Transactions(BankAccount& balance) : balanceRef(balance) {}
-//Transactions::Transactions(const BankAccount &balance):balanceRef(balance){}
-
+*	Direct BankAccount object retrieval
+*	This constructor retrieves the object and assigns it to balanceRef so that
+*	the value can be modified directly from within this class.
 */
-
-/*	Tiesioginis BankAccount objekto gavimas
-*	Sis konstruktorius isgauna objekta ir priskiria ji prie balanceRef, tam kad veliau
-*	butu galima modifikuoti reiksme tiesiogiai is sios klases vidaus.
-*/ 
-
-Transactions::Transactions(BankAccount& balance) : balanceRef(balance), amount_(0){}
+Transactions::Transactions(BankAccount& balance) : balanceRef(balance), amount_(0) {}
 
 
 void Transactions::printOptions() const {
+
 	UserInput::ioTransactionsOptions();
+
 }
+
 /*
-*	Grazinamas BankAccount objekto balansas
+*	Returns the balance of the BankAccount object
 */
 double Transactions::getBalance() {
+
 	return balanceRef.getBalance();
+
 }
 /*
-*	Metodas pinigu idejimui. Padidina BankAccount objekto balanso reiksme
+*	Method for depositing money. Increases the balance of the BankAccount object
 */
 void Transactions::deposit() {
-	//currentAmount += amount;
+
 	UserInput::ioHowMuchToDeposit(amount_);
 	balanceRef.updateBalanceAmount(amount_);
+
 }
+
 /*
-*	Pinigu isdavimui. Pamazina BankAccount objekto balanso reiksme
+*	Method for withdrawing money. Decreases the balance of the BankAccount object
 */
-void Transactions::withdrawl() {
-	UserInput::ioHowMuchToWithdrawl(amount_);
+void Transactions::withdrawal() {
+
+	UserInput::ioHowMuchToWithdrawal(amount_);
+
 	if (amount_ > balanceRef.getBalance()) {
 		cout << "Insufficient balance. Withdrawl cannot be done." << endl;
 		return;
 	}
+
 	cout << "transfer completed";
 	balanceRef.updateBalanceAmount(-amount_);
+
 }
 /*
-*	Method responsible for searching recipient by ID.
-*	The outcome is returned in form of pointer to an object.
-*	Account is searched through vector.
+*	Method responsible for searching the recipient bankaccount by ID.
+*	Iterates through the vector of BankAccount objects and checks if the ID matches.
+*	If a match is found, a pointer to the BankAccount object is returned.
+*	If no match is found, a nullptr is returned
 */
 BankAccount* Transactions::searchForTransferAcc(int id, vector<BankAccount>& accounts)
 {
+
 	for (auto &account : accounts) {
 		if (id == account.getID()) {
 			return &account;
 		}
 	}
 	return nullptr;
+
 }
 /*
-*	This method is responsible for transfering funds to desired account
-*	Uses another member method for finding recipient. Also, UserInput class is called for inputs. In first case 
-*	to get recipients ID and second to ask for the sum to transfer.
-*	Desired account is returned in form of pointer and then using it value are passed and changed.
+*	Method responsible for transferring funds to the desired account.
+*	It utilizes another member method to find the recipient's account.
+*	UserInput class methods are used to prompt for the recipient's ID and the amount to transfer.
+*	The recipient's account is obtained in the form of a pointer.
+*	The transfer amount is validated against the current account's balance, and if it exceeds, the transfer is aborted.
+*	The balances of both the current account and the recipient account are updated accordingly by subtracting and adding the transfer amount, respectively.
+*	The recipient's information is displayed using the disp() method of the BankAccount object through the pointer.
 */
 void Transactions::transferTo(BankAccount& account, vector<BankAccount>& accounts) {
 	
@@ -81,8 +93,5 @@ void Transactions::transferTo(BankAccount& account, vector<BankAccount>& account
 	recipientPtr->disp();
 	
 	cout << "transfer completed";
+
 };
-//void Transactions::setAmount() {
-	
-	//deposit();
-//}

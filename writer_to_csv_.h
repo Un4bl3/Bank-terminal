@@ -13,6 +13,7 @@ private:
 	string filename;
 
 public:
+
 	Writer();
 	Writer(const string& filename);
 	bool openFile();

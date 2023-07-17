@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <Windows.h>
+
 #include "atm_.h"
 #include "user_.h"
 #include "bankAccount_.h"
@@ -9,9 +11,14 @@
 #include "reader_from_csv_.h"
 #include "transactions_.h"
 #include "login_.h"
-#include "interface_.h"#include <Windows.h>
+#include "interface_.h"
+
 using namespace std;
-vector<BankAccount> connectingLists(vector<User>& users) {
+/*
+*	This function create list of bankAccount objects. 
+*	Given list of users.
+*/
+vector<BankAccount> createBankAccountList(vector<User>& users) {
 	vector<BankAccount>accounts;
 	for (auto user : users) {
 		BankAccount account(user);
@@ -23,9 +30,10 @@ vector<BankAccount> connectingLists(vector<User>& users) {
 
 int main() {
 	Interface guide;
+
 	vector<User>list = guide.readUsers();
-	
-	vector<BankAccount>accounts = connectingLists(list); 
+	vector<BankAccount>accounts = createBankAccountList(list); 
+
 	guide.interfaceLoad();
 	guide.interfaceGuide(list,accounts);
 		

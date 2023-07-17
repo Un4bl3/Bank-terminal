@@ -147,7 +147,6 @@
     <ClInclude Include="interface_.h" />
     <ClInclude Include="login_.h" />
     <ClInclude Include="obtainUser_.h" />
-    <ClInclude Include="5tr.h" />
     <ClInclude Include="reader_from_csv_.h" />
     <ClInclude Include="transactions_.h" />
     <ClInclude Include="userInput_.h" />

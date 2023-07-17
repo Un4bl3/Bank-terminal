@@ -1,14 +1,15 @@
 #include "atm_.h"
 #include <iostream>
-
+/*
+*	Additional class as an idea for future funcionality
+*/
 
 ATM::ATM(int id, int money, string whereItPlaced, bool isItActive) :id(id), moneyInside(money), location(whereItPlaced), statusActive(isItActive) {
 
 }
 
 
-void ATM::getAtm() const
-{
+void ATM::getAtm() const {
 	cout << "The ID is: " << this->id << endl;
 	cout << "There is " << this->moneyInside << "$ inside" << endl;
 	cout << "ATM placed in " << this->location << "city" << endl;
